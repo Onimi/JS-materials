@@ -54,4 +54,14 @@ foo = {
   done: false,
   value: 128,
 };
+console.log(foo);
 ```
+
+There are special object-wrappers for boolean, number and string values - `Boolean`, `Number`, `String`.
+They contain special values and methods to deal with these types.
+
+So `Number` holds special values like:
+`Number.MAX_VALUE` - the maximum numeric value representable in JavaScript.
+`Number.MIN_VALUE` - the minimum numeric value representable in JavaScript.
+`Number.NaN` - represents Not-A-Number (aka `NaN`). Result of incorrect calculations.
+`Number.POSITIVE_INFINITY` (aka `Infinity`) - special value to indicate calculations get out of representable range.
