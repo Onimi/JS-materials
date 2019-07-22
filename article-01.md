@@ -1,4 +1,4 @@
-# Article 01
+# Article 01. Types, variables and functions.
 
 ## 1.1 Introduction
 
