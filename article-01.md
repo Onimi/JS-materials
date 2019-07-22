@@ -55,6 +55,38 @@ but it is not.
 
 ### 1.3.2 Primitives and objects.
 
+Primitives represent singular values. Objects hold collection of named values and each of these values could be a primitive
+or an object.
+
+```javascript
+var primitive1 = 12.34;
+var primitive2 = primitive2;
+console.log(primitive2); // 12.34
+
+var object1 = {
+  name: "John",
+  age: 23,
+};
+var object2 = object1;
+console.log(object2); // Object { name: "John", age: 23 }
+```
+
+```javascript
+primitive2++;
+console.log(primitive1); // 12.34
+console.log(primitive2); // 13.34
+
+object2.age++;
+console.log(object1); // Object { name: "John", age: 24 }
+console.log(object2); // Object { name: "John", age: 23 }
+```
+
+```javascript
+var result1 = { done: false, value: 1 };
+var result2 = { done: false, value: 1 };
+console.log(result1 === result2); // false
+```
+
 ### 1.3.3 Dynamic types.
 
 In JavaScript variables don't have type. Type is related to a value stored in variable.
