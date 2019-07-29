@@ -235,18 +235,36 @@ var fractal = 125.788;
 
 ### 1.3.5 Wrapper objects.
 
-There are special object-wrappers for boolean, number and string values - `Boolean`, `Number`, `String`.
-They contain special values and methods to deal with these types.
+Для логических значений, чисел, строк и символов есть вспомогательные объекты-обертки - `Boolean`, `Number`, `String`, `Symbol`.
+Они содержат дополнительную функциональность (специальные занчения и методы) для работы с этими типами.
 
-So `Number` holds special values like:
-- `Number.MAX_VALUE` - the maximum numeric value representable in JavaScript.
-- `Number.MIN_VALUE` - the minimum numeric value representable in JavaScript.
-- `Number.NaN` - represents Not-A-Number (aka `NaN`). Result of incorrect calculations.
-- `Number.POSITIVE_INFINITY` (aka `Infinity`) - special value to indicate calculations get out of representable range.
+Так, например, `Number` содержит:
+Спецзначения:
+- `Number.MAX_VALUE` - наибольшее числовое значение представимое в JavaScript.
+- `Number.MIN_VALUE` - наименьшее числовое значение представимое в JavaScript.
+- `Number.NaN` - (Not-A-Number) результат некорректной арифметической операции.
+- `Number.POSITIVE_INFINITY` (тоже самое, что и `Infinity`) - спецзначение указывающее, что результат вычислений вышел за представимые границы.
 
-...
+Статические методы:
+- `Number.isInteger()` - проверка на целочисленность
+- `Number.parseFloat()` - преобразование строки в дробное число
+- `Number.parseInt()` - преобразование строки в целое число
 
-It's not necessary to call wrapper objects explicitly to use their methods and properties:
+Методы экземпляра (методы прототипа):
+- `toFixed()` - округление до определенного количества знаков после запятой
+- `toString()` - представление в виде строки
+
+Объект `String` предоставляет возможность определить длину строки с помощью свойства `length`.
+А также такие методы для работы с экземпляром строки, как `charAt()`, `includes()`, `match()`, `replace()`, `slice()`, `split()` и другие.
+```javascript
+var text = new String("Hello, my name is Bob.");
+console.log(text.length); // 22
+console.log(text.includes("name")); // true
+console.log(text.replace("Bob", "James")); // "Hello, my name is James."
+console.log(text.slice(0, 5)); // "Hello"
+```
+
+Важным моментом является то, что для получения доступа к вспомогательной фунциональности необязательно явно инициализировать объекты-обертки:
 ```javascript
 var str = "Hi there, everybody";
 var strObj = new String(str);
@@ -254,16 +272,18 @@ console.log(strObj.length); // 19
 console.log(strObj.split(" ")); // [ "Hi", "there,", "everybody" ]
 ```
 
-We can omit explicit initialization of wrapper objects. So it's absolutely correct to write:
+На самом деле эта инициализация может быть опущена. И следующий код будет рабочим:
 ```javascript
 var str = "Hi there, everybody";
 console.log(str.length); // 19
 console.log(str.split(" ")); // [ "Hi", "there,", "everybody" ]
 ```
 
-In this case wrapper objects will be created implicitly by JavaScrit engine.
+В этом случае объекты-обертки будут неявно вызваны движков JavaScrit. И такой стиль считается более предпочтительным.
 
 ### 1.3.6 Strict and non-strcit comparison.
+
+### 1.3.7 Array as subtype of Object.
 
 ## 1.4 Functions and scope
 
